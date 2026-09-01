@@ -8,6 +8,7 @@
             Padding="30,0"
             Spacing="25">
             <Image
+                x:Name="BotImage"
                 Source="dotnet_bot.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
@@ -30,6 +31,14 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+            <Button
+                x:Name="ResetBtn"
+                Text="Tagasi nulli" 
+                BackgroundColor="Beige"
+                Clicked="ResetBtn_Clicked"/>
+
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
