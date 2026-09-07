@@ -7,8 +7,19 @@
     Title="MauiApp1">
 
     <Shell.TitleView>
+        <Label
+            Text = "Näidis"
+            FontFamily = "luffio Regular 400"
+            FontSize = "Title"
+            TextColor = "DarkGoldenrod"
+            VerticalTextAlignment = "Center"
+            VerticalOptions = "Center"
+            HorizontalOptions = "Start"
+            Padding = "25,0, 0, 0"
+            HeightRequest = "50"/>
+    </Shell.TitleView>
 
-        <ShellContent
+    <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:StartPage}"
         Route="StartPage" />
