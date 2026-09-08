@@ -48,6 +48,14 @@ public partial class TextPage : ContentPage
 			hsl.Add(nupp);
 			nupp.Clicked += Liikumine;
 		}
+		vsl = new VerticalStackLayout
+		{
+			Padding = 20,
+			Spacing = 15,
+			Children = { lbl, editor, hsl },
+			HorizontalOptions = LayoutOptions.Center
+		};
+		Content = vsl;
 	}
 
     private void Liikumine(object? sender, EventArgs e)

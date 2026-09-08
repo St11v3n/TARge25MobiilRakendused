@@ -21,7 +21,7 @@ namespace MauiApp1
                 {
                     Text = Lehenimed[i],
                     FontSize = 36,
-                    FontFamily = "Luffio",
+                    FontFamily = "Luculine",
                     BackgroundColor = Colors.LightGray,
                     TextColor = Colors.Black,
                     CornerRadius = 10,
