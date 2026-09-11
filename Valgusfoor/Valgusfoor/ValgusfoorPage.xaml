@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Valgusfoor.ValgusfoorPage"
+             Title="ValgusfoorPage">
+    
+    <VerticalStackLayout Spacing="15" Padding="20">
+        <Label
+            x:Name="CurrentStateLabel"
+            Text="Traffic Light"
+            Style="{StaticResource Headline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Grid>
+            <BoxView
+            x:Name= "Redlight"
+            WidthRequest="100"
+            HeightRequest="100"
+            CornerRadius="50"
+            BackgroundColor="Gray"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        </Grid>
+
+        <Grid>
+            <BoxView
+            x:Name= "Yellowlight"
+            WidthRequest="100"
+            HeightRequest="100"
+            CornerRadius="50"
+            BackgroundColor="Gray"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        </Grid>
+
+        <Grid>
+            <BoxView
+             x:Name= "Greenlight"
+             WidthRequest="100"
+             HeightRequest="100"
+             CornerRadius="50"
+             BackgroundColor="Gray"
+             VerticalOptions="Center"
+             HorizontalOptions="Center"/>
+        </Grid>
+        
+        <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+            <Button
+            x:Name="OnButton"
+            Text="On"
+            Clicked="ClickedOn"/>
+
+            <Button
+            x:Name="OffButton"
+            Text="Off"
+            Clicked="ClickedOff"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+    
+</ContentPage>
