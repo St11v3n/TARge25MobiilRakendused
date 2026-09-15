@@ -41,7 +41,18 @@ public partial class StepperSliderPage : ContentPage
         {
             double yKoht = 0.2 + i * 0.2;
             AbsoluteLayout.SetLayoutBounds(controls[i], new Rect(0.5, yKoht, 300, 60));
-            AbsoluteLayout.SetLayoutFlags(controls[i])
+            AbsoluteLayout.SetLayoutFlags(controls[i], Microsoft.Maui.Layouts.AbsoluteLayoutFlags.PositionProportional);
         }
+        Content = al;
 	}
+
+    private void Stepper_Slider_ValueChanged(object? sender, ValueChangedEventArgs e)
+    {
+        label.Text = $"Stepper/Slideri v‰‰rtus: {e.NewValue:F0}";
+        label.FontSize = 24 + e.NewValue / 4; //Suurendab fondi suurust v‰‰rtuse kasvades
+        label.BackgroundColor = Color.FromRgb((int)(e.NewValue * 2.55), (int)(255 - e.NewValue * 2.55), 128); //V‰rv muutub roosast siniseks v‰‰rtuse kasvades
+        label.TextColor = Color.FromRgb((int)(255 - e.NewValue * 2.55), (int)(e.NewValue * 2.55), 128); //Tekstiv‰rv muutub sinisest roosaks v‰‰rtuse kasvades
+        label.Rotation = e.NewValue;
+    }
+
 }

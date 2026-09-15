@@ -9,7 +9,7 @@ namespace MauiApp1
     {
         VerticalStackLayout vst;
         ScrollView sv;
-        public List<ContentPage> Lehed = new List<ContentPage>() { new TextPage(), new FigurePage()};
+        public List<ContentPage> Lehed = new List<ContentPage>() { new TextPage(), new FigurePage(), new Timer_Page(), new DateTime_Page(), new StepperSliderPage()};
         public List<string> Lehenimed = new List<string>() { "Testid", "Kujundus" };
         public StartPage()
         {
