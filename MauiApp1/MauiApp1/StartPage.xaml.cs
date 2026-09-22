@@ -39,5 +39,29 @@ namespace MauiApp1
             sv=new ScrollView { Content = vst };
             Content = sv;
         }
+
+            protected override async void OnAppearing()
+            {
+                base.OnAppearing();
+
+                bool onEsimeneStart = Preferences.Default.Get("Esimenekäivitamine", true);
+
+                if (onEsimeneStart)
+                { 
+
+                    bool vastus = await DispayAlertAsync("Tere tulemast!",
+                                                "Tundub, et avasid selle rakenduse esimest korda. Kas soovid näha lühikest juhendit?",
+                                                "Jah, palun",
+                                                "Ei, saan ise hakkama");
+                    
+                    if (vastus)
+                    {
+                    await DisplayAlertAsync("Juhend",
+                        "Siin on sinu lühike juhend: vali menüüst sobiv teema ja uuri, kuidas elemendid töötavad!",
+                        "Selge");
+                    }
+                    Preferences.Default.Set("EsimeneKäivitamine", false);
+                }   
     }
 }
+
