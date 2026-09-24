@@ -2,11 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tree.TreePage"
-             Title="TreePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Puu">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <AbsoluteLayout>
+                
+                <BoxView x:Name="Body"
+                         Color="Brown"
+                         AbsoluteLayout.LayoutBounds="650, 150, 30, 150"/>
+
+                <BoxView x:Name="Leaves"
+                       BackgroundColor="Green"
+                       CornerRadius="100"
+                       AbsoluteLayout.LayoutBounds="560, 30, 200, 200"/>
+            </AbsoluteLayout>
+
+            <Picker x:Name="ActionPicker" Title="Vali Tegevus">
+                <Picker.Items>
+                    <x:String>Kasva</x:String>
+                    <x:String>Õitse</x:String>
+                    <x:String>Värise</x:String>
+                    <x:String>Langeta</x:String>
+                    <x:String>Lähtesta</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button Text="Käivita" Clicked="OnActionClicked" />
+
+            <Label x:Name="InfoLabel" Text="Vali tegevus ja vajuta nuppu." FontSize="16" HorizontalOptions="Center" />
+
+            <VerticalStackLayout>
+                <Label Text="Sügis / Läbipaistvus (Opacity):" />
+                <Slider x:Name="OpacitySlider" Minimum="0.0" Maximum="1.0" Value="1.0" ValueChanged="OnOpacitySliderChanged" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Label Text="Animatsiooni kiirus (ms):" VerticalOptions="Center"/>
+                <Stepper x:Name="SpeedStepper" Minimum="500" Maximum="2000" Increment="250" Value="1000" />
+                <Label x:Name="SpeedLabel" Text="1000" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Grid ColumnDefinitions="*, *">
+                <VerticalStackLayout Grid.Column="0" Margin="5">
+                    <Label Text="Kuupäev:" />
+                    <DatePicker x:Name="VirtualDatePicker" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" Margin="5">
+                    <Label Text="Kellaaeg:" />
+                    <TimePicker x:Name="VirtualTimePicker" />
+                </VerticalStackLayout>
+            </Grid>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
