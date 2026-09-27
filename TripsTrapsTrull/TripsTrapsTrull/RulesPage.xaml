@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TripsTrapsTrull.RulesPage"
+             Title="RulesPage">
+    
+    <VerticalStackLayout Padding="30" Spacing="15" HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Trips-Traps-Trull Reeglid" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Label Text="1. Mäng toimub 3x3 ruudustikul." FontSize="16" />
+        <Label Text="2. Võidab mängija, kes saab esimesena 3 sümbolit ritta." FontSize="16" />
+
+        <Button Text="Tagasi mängima" Clicked="SuleLeht" Margin="0,20,0,0" />
+    </VerticalStackLayout>
+</ContentPage>
