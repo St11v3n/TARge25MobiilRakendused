@@ -9,6 +9,6 @@
         <Label Text="1. Mäng toimub 3x3 ruudustikul." FontSize="16" />
         <Label Text="2. Võidab mängija, kes saab esimesena 3 sümbolit ritta." FontSize="16" />
 
-        <Button Text="Tagasi mängima" Clicked="SuleLeht" Margin="0,20,0,0" />
+        <Button Text="Tagasi mängima" Clicked="ClosePage" Margin="0,20,0,0" />
     </VerticalStackLayout>
 </ContentPage>

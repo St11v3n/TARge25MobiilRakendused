@@ -7,7 +7,7 @@ public partial class RulesPage : ContentPage
         InitializeComponent();
     }
 
-    private async void SuleLeht(object sender, EventArgs e)
+    private async void ClosePage(object sender, EventArgs e)
     {
         await Navigation.PopAsync(); 
     }
