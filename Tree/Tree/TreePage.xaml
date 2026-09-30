@@ -9,12 +9,12 @@
                 
                 <BoxView x:Name="Body"
                          Color="Brown"
-                         AbsoluteLayout.LayoutBounds="650, 150, 30, 150"/>
+                         AbsoluteLayout.LayoutBounds="135, 150, 30, 150"/>
 
                 <BoxView x:Name="Leaves"
                        BackgroundColor="Green"
                        CornerRadius="100"
-                       AbsoluteLayout.LayoutBounds="560, 30, 200, 200"/>
+                       AbsoluteLayout.LayoutBounds="56, 30, 200, 200"/>
             </AbsoluteLayout>
 
             <Picker x:Name="ActionPicker" Title="Vali Tegevus">
