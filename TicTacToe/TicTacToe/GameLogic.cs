@@ -202,7 +202,22 @@ namespace TicTacToe
             return SquareButtons[2].Text;
           }
 
-          bool isBoardFilled = true;
+          if (SquareButtons[2].Text != "" &&
+                SquareButtons[2].Text == SquareButtons[4].Text &&
+                SquareButtons[2].Text == SquareButtons[6].Text)
+          {
+            return SquareButtons[2].Text;
+          }
+
+          if (SquareButtons[0].Text != "" &&
+                  SquareButtons[0].Text == SquareButtons[4].Text &&
+                  SquareButtons[0].Text == SquareButtons[8].Text)
+          {
+                return SquareButtons[0].Text;
+          }
+
+
+            bool isBoardFilled = true;
           
           foreach (Button button in SquareButtons)
           {
