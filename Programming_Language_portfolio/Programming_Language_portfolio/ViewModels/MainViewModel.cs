@@ -1,18 +1,19 @@
 ﻿using Programming_Language_portfolio.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using static Programming_Language_portfolio.MainPage;
 
 namespace Programming_Language_portfolio.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        
         public event PropertyChangedEventHandler PropertyChanged;
 
         private CarouselItem _currentCard;
         private int _currentCardIndex = 0;
         private readonly LanguageService _languageService;
+
+      
+        public static bool IsPageAlive { get; set; } = true;
 
         public List<CarouselItem> PortfolioItems { get; private set; }
 
@@ -21,27 +22,48 @@ namespace Programming_Language_portfolio.ViewModels
             get => _currentCard;
             set
             {
-                _currentCard = value;
-                OnPropertyChanged(); 
+                if (_currentCard != value)
+                {
+                    _currentCard = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
         public MainViewModel()
         {
+            
+            IsPageAlive = true;
+
             _languageService = new LanguageService();
             PortfolioItems = _languageService.GetPortfolioItems();
-            CurrentCard = PortfolioItems[_currentCardIndex];
 
-            
+            if (PortfolioItems.Count > 0)
+            {
+                CurrentCard = PortfolioItems[_currentCardIndex];
+            }
+
             Application.Current.Dispatcher.StartTimer(TimeSpan.FromSeconds(4), () =>
             {
+                
+                if (!IsPageAlive)
+                {
+                    return false;
+                }
+
+                if (PortfolioItems.Count == 0) return true;
+
                 _currentCardIndex = (_currentCardIndex + 1) % PortfolioItems.Count;
-                CurrentCard = PortfolioItems[_currentCardIndex];
+
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    CurrentCard = PortfolioItems[_currentCardIndex];
+                });
+
                 return true;
             });
         }
 
-        
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
