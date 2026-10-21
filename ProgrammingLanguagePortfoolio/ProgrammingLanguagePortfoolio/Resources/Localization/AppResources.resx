@@ -98,10 +98,23 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<data name="ButtonText" xml:space="preserve"><value>View Code</value></data>
-	<data name="CSharpDesc" xml:space="preserve"><value>Change Language</value></data>
-	<data name="PythonDesc" xml:space="preserve"><value>English</value></data>
-	<data name="CPlusDesc" xml:space="preserve"><value>Russian</value></data>
-	<data name="JavaScriptDesc" xml:space="preserve"><value>Estonian</value></data>
-	<data name="TypeScriptDesc" xml:space="preserve"><value>Estonian</value></data>
+	<data name="ButtonText" xml:space="preserve">
+    <value>View Code</value>
+	</data>
+	<data name="CSharpDesc" xml:space="preserve">
+    <value>An object-oriented programming language with strong community support and a clear structure that enables code reusability.</value>
+	</data>
+	<data name="PythonDesc" xml:space="preserve">
+    <value>A programming language with syntax resembling English that also allows code to be written in fewer lines compared to other programming languages.
+	</value>
+	</data>
+	<data name="JSDesc" xml:space="preserve">
+    <value>A web programming language that can calculate, modify, and validate data. It can also update and modify both HTML and CSS.</value>
+	</data>
+	<data name="TSDesc" xml:space="preserve">
+    <value>JavaScript with added syntax for types.</value>
+	</data>
+	<data name="CppDesc" xml:space="preserve">
+    <value>A cross-platform language that can be used to create high-performance applications.</value>
+	</data>
 </root>

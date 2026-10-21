@@ -70,16 +70,16 @@ namespace ProgrammingLanguagePortfoolio.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Russian.
+        ///   Looks up a localized string similar to A cross-platform language that can be used to create high-performance applications..
         /// </summary>
-        internal static string CPlusDesc {
+        internal static string CppDesc {
             get {
-                return ResourceManager.GetString("CPlusDesc", resourceCulture);
+                return ResourceManager.GetString("CppDesc", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change Language.
+        ///   Looks up a localized string similar to An object-oriented programming language with strong community support and a clear structure that enables code reusability..
         /// </summary>
         internal static string CSharpDesc {
             get {
@@ -88,16 +88,17 @@ namespace ProgrammingLanguagePortfoolio.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Estonian.
+        ///   Looks up a localized string similar to A web programming language that can calculate, modify, and validate data. It can also update and modify both HTML and CSS..
         /// </summary>
-        internal static string JavaScriptDesc {
+        internal static string JSDesc {
             get {
-                return ResourceManager.GetString("JavaScriptDesc", resourceCulture);
+                return ResourceManager.GetString("JSDesc", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to English.
+        ///   Looks up a localized string similar to A programming language with syntax resembling English that also allows code to be written in fewer lines compared to other programming languages.
+        ///	.
         /// </summary>
         internal static string PythonDesc {
             get {
@@ -106,11 +107,11 @@ namespace ProgrammingLanguagePortfoolio.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Estonian.
+        ///   Looks up a localized string similar to JavaScript with added syntax for types..
         /// </summary>
-        internal static string TypeScriptDesc {
+        internal static string TSDesc {
             get {
-                return ResourceManager.GetString("TypeScriptDesc", resourceCulture);
+                return ResourceManager.GetString("TSDesc", resourceCulture);
             }
         }
     }

@@ -63,12 +63,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="Services\" />
-	  <Folder Include="Views\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Resources\Localization\AppResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>

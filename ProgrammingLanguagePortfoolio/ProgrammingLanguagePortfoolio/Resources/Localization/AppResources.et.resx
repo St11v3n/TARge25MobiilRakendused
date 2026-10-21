@@ -98,4 +98,22 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="ButtonText" xml:space="preserve">
+    <value>Vaata koodi</value>
+	</data>
+	<data name="CSharpDesc" xml:space="preserve">
+    <value>Objekt orienteeritud programmeerimise keel, millel on suur kogukonna toetus ning selle ülesehitus on selge, mis võimaldab koodi korduvkasutust.</value>
+	</data>
+	<data name="PythonDesc" xml:space="preserve">
+    <value>Programmeerimis keel, milles süntaks sarnaneb inglise keelega ning samas võimaldab kirjutada koodi vähem ridadega võrreldes teiste programmeerimiskeeltega.</value>
+	</data>
+	<data name="JSDesc" xml:space="preserve">
+    <value>Veebi programmeerimiskeel, mis saab arvutada, muuta ja kinnitada andmeid. Samuti saab uuendada kui ka muuta mõlemad HTML ja CSS.</value>
+	</data>
+	<data name="TSDesc" xml:space="preserve">
+    <value>JavaScript, millele on lisatud tüüpide süntaks.</value>
+	</data>
+	<data name="CppDesc" xml:space="preserve">
+    <value>Platvormiülene keel, mida saab kasutada suure jõudlusega rakenduste loomiseks.</value>
+	</data>
 </root>
