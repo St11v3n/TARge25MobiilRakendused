@@ -8,7 +8,7 @@ namespace MemoGame
     {
         private Grid grid;
 
-        private Button choiceButton;
+       
 
         private Button statisticsButton;
 
@@ -23,6 +23,8 @@ namespace MemoGame
         private int currentThemeIndex;
 
         private Player player;
+        private Button choiceButton;
+
 
         private Game game;
 
@@ -57,7 +59,7 @@ namespace MemoGame
             {
                 grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
 
-                choiceButton = new Button { Text = "?" };
+                
 
                
             }
@@ -73,11 +75,9 @@ namespace MemoGame
             {
                 for (int c = 0; c < 4; c++)
                 {
-                   
-                    choiceButton = new Button { Text = "?", HeightRequest = 70, WidthRequest = 70, BackgroundColor = Colors.Gray };
 
+                    choiceButton = new Button { Text = "?", HeightRequest = 70, WidthRequest = 70, BackgroundColor = Colors.Gray };
                     choiceButton.Clicked += OnClickedChoiceButton;
-                    
                     grid.Add(choiceButton, c, r);
                 }
             }
@@ -141,20 +141,16 @@ namespace MemoGame
 
         public async void OnClickedChoiceButton(object sender, EventArgs e)
         {
-
             Button clickedButton = (Button)sender;
 
-            
             int r = Grid.GetRow(clickedButton);
             int c = Grid.GetColumn(clickedButton);
 
             Card clickedCard = game.Board[r, c];
 
-            
             if (clickedCard.IsFaceUp || clickedCard.IsMatched || game.SelectedCount >= 2)
                 return;
 
-           
             clickedCard.IsFaceUp = true;
             clickedButton.Text = clickedCard.Content;
             player.IncrementMoves();
@@ -162,25 +158,50 @@ namespace MemoGame
 
             if (game.SelectedCount == 1)
             {
-               
                 game.FirstSelectedButton = clickedButton;
                 game.FirstSelectedCard = clickedCard;
             }
             else if (game.SelectedCount == 2)
             {
-               
+                
                 await Task.Delay(1000);
 
                 if (game.FirstSelectedCard.Content == clickedCard.Content)
                 {
-                   
+                    
                     game.FirstSelectedCard.IsMatched = true;
                     clickedCard.IsMatched = true;
                     player.AddPoints(20);
+
+                   
+                    bool hasWon = true;
+                    for (int row = 0; row < 4; row++)
+                    {
+                        for (int col = 0; col < 4; col++)
+                        {
+                            if (game.Board[row, col].IsMatched == false)
+                            {
+                                hasWon = false;
+                                break;
+                            }
+                        }
+                        if (!hasWon) break;
+                    }
+
+                    if (hasWon)
+                    {
+                        HighScoreService.SaveHighScore(player.Score);
+                        string victoryMessage = $"Victory! You matched all pairs!\n\n" +
+                                                 $"Total Moves: {player.MoveCount}\n" +
+                                                 $"Final Score: {player.Score} pts\n" +
+                                                 $"High Score: {HighScoreService.GetHighScore()} pts";
+
+                        await DisplayAlert("Game Over", victoryMessage, "Great!");
+                    }
                 }
                 else
                 {
-                  
+                    
                     game.FirstSelectedCard.IsFaceUp = false;
                     clickedCard.IsFaceUp = false;
 
@@ -190,56 +211,9 @@ namespace MemoGame
 
                 
                 game.SelectedCount = 0;
-
+                game.FirstSelectedButton = null;
+                game.FirstSelectedCard = null;
             }
-
-            if (game.FirstSelectedCard.Content == clickedCard.Content)
-            {
-                game.FirstSelectedCard.IsMatched = true;
-                clickedCard.IsMatched = true;
-                player.AddPoints(20);
-
-                
-                bool hasWon = true;
-                for (int row = 0; row < 4; row++)
-                {
-                    for (int col = 0; col < 4; col++)
-                    {
-                        if (game.Board[row, col].IsMatched == false)
-                        {
-                            hasWon = false;
-                            break;
-                        }
-                    }
-                    if (!hasWon) break;
-                }
-
-                if (hasWon)
-                {
-                    HighScoreService.SaveHighScore(player.Score);
-                    string victoryMessage = $"Victory! You matched all pairs!\n\n" +
-                                             $"Total Moves: {player.MoveCount}\n" +
-                                             $"Final Score: {player.Score} pts\n"+
-                                             $"High Score: {HighScoreService.GetHighScore()} pts";
-
-                    await DisplayAlertAsync("Game Over", victoryMessage, "Great!");
-                }
-            }
-
-            else
-            {
-               
-                game.FirstSelectedCard.IsFaceUp = false;
-                clickedCard.IsFaceUp = false;
-
-                game.FirstSelectedButton.Text = "?";
-                clickedButton.Text = "?";
-            }
-
-            
-            game.SelectedCount = 0;
-            game.FirstSelectedButton = null;
-            game.FirstSelectedCard = null;
         }
 
         public void OnClickedStartButton(object sender, EventArgs e)
