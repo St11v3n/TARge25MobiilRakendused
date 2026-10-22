@@ -192,6 +192,54 @@ namespace MemoGame
                 game.SelectedCount = 0;
 
             }
+
+            if (game.FirstSelectedCard.Content == clickedCard.Content)
+            {
+                game.FirstSelectedCard.IsMatched = true;
+                clickedCard.IsMatched = true;
+                player.AddPoints(20);
+
+                
+                bool hasWon = true;
+                for (int row = 0; row < 4; row++)
+                {
+                    for (int col = 0; col < 4; col++)
+                    {
+                        if (game.Board[row, col].IsMatched == false)
+                        {
+                            hasWon = false;
+                            break;
+                        }
+                    }
+                    if (!hasWon) break;
+                }
+
+                if (hasWon)
+                {
+                    HighScoreService.SaveHighScore(player.Score);
+                    string victoryMessage = $"Victory! You matched all pairs!\n\n" +
+                                             $"Total Moves: {player.MoveCount}\n" +
+                                             $"Final Score: {player.Score} pts\n"+
+                                             $"High Score: {HighScoreService.GetHighScore()} pts";
+
+                    await DisplayAlertAsync("Game Over", victoryMessage, "Great!");
+                }
+            }
+
+            else
+            {
+               
+                game.FirstSelectedCard.IsFaceUp = false;
+                clickedCard.IsFaceUp = false;
+
+                game.FirstSelectedButton.Text = "?";
+                clickedButton.Text = "?";
+            }
+
+            
+            game.SelectedCount = 0;
+            game.FirstSelectedButton = null;
+            game.FirstSelectedCard = null;
         }
 
         public void OnClickedStartButton(object sender, EventArgs e)
@@ -215,12 +263,14 @@ namespace MemoGame
 
         public void OnClickedStatisticsButton(object sender, EventArgs e)
         {
+            int savedHighScore = HighScoreService.GetHighScore();
 
             string statsMessage = $"Player: {player.Name}\n" +
                           $"Score: {player.Score} points\n" +
-                          $"Moves: {player.MoveCount}";
+                          $"Moves: {player.MoveCount}\n"+
+                          $"All-Time High Score: {savedHighScore} points";
 
-            DisplayAlert("Game Stats", statsMessage, "Close");
+            DisplayAlertAsync("Game Stats", statsMessage, "Close");
 
         }
 
