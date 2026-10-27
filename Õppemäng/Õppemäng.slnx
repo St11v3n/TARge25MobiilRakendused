@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Õppemäng/Õppemäng.csproj">
+    <Deploy />
+  </Project>
+</Solution>
