@@ -1,4 +1,6 @@
-﻿using Microsoft.Maui.Controls;
+﻿using AndroidX.Lifecycle;
+using Microsoft.Maui.Controls;
+using Õppemäng.ViewModels;
 namespace Õppemäng
 {
     public partial class MainPage : ContentPage
@@ -40,9 +42,9 @@ namespace Õppemäng
 
 
 
-        public MainPage()
+        public MainPage(MainViewModel viewModel)
         {
-
+            BindingContext = viewModel;
 
             image1 = new Image { Source = "", WidthRequest = 100, HeightRequest = 100 };
 
@@ -61,8 +63,16 @@ namespace Õppemäng
 
 
             StartBtn = new Button { Text = "Start" };
+            StartBtn.SetBinding(Button.TextProperty, "StartButtonText");
+            StartBtn.SetBinding(Button.CommandProperty, "StartGameCommand");
+
             ThemeBtn = new Button { Text = "Theme" };
+            ThemeBtn.SetBinding(Button.TextProperty, "ThemeButtonText");
+            ThemeBtn.SetBinding(Button.CommandProperty, "ThemeCommand");
+
             StatisticsBtn = new Button { Text = "Statistics" };
+            StatisticsBtn.SetBinding(Button.TextProperty, "StatisticsButtonText");
+            StatisticsBtn.SetBinding(Button.CommandProperty, "StatisticsCommand");
 
 
 
