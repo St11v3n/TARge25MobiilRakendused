@@ -1,6 +1,5 @@
-﻿using AndroidX.Lifecycle;
+﻿
 using Microsoft.Maui.Controls;
-using Õppemäng.ViewModels;
 namespace Õppemäng
 {
     public partial class MainPage : ContentPage
@@ -8,6 +7,10 @@ namespace Õppemäng
         private Image image1;
         private Image image2;
         private Image image3;
+
+        private Image dragimage1;
+        private Image dragimage2;
+        private Image dragimage3;
 
         private Label label1;
         private Label label2;
@@ -35,6 +38,8 @@ namespace Õppemäng
 
         private HorizontalStackLayout languagelayout;
 
+        private HorizontalStackLayout imagelayout;
+
         private VerticalStackLayout mainlayout;
 
 
@@ -42,9 +47,9 @@ namespace Õppemäng
 
 
 
-        public MainPage(MainViewModel viewModel)
+        public MainPage()
         {
-            BindingContext = viewModel;
+            
 
             image1 = new Image { Source = "", WidthRequest = 100, HeightRequest = 100 };
 
@@ -62,23 +67,9 @@ namespace Õppemäng
             label3 = new Label { Text = "" };
 
 
-            StartBtn = new Button { Text = "Start" };
-            StartBtn.SetBinding(Button.TextProperty, "StartButtonText");
-            StartBtn.SetBinding(Button.CommandProperty, "StartGameCommand");
-
-            ThemeBtn = new Button { Text = "Theme" };
-            ThemeBtn.SetBinding(Button.TextProperty, "ThemeButtonText");
-            ThemeBtn.SetBinding(Button.CommandProperty, "ThemeCommand");
-
-            StatisticsBtn = new Button { Text = "Statistics" };
-            StatisticsBtn.SetBinding(Button.TextProperty, "StatisticsButtonText");
-            StatisticsBtn.SetBinding(Button.CommandProperty, "StatisticsCommand");
-
-
-
-            EnglishBtn = new Button { Text = "English", CommandParameter = "en" };
-            RussianBtn = new Button { Text = "Russian", CommandParameter = "ru" };
-            EstonianBtn = new Button { Text = "Estonian", CommandParameter = "et" };
+            dragimage1 = new Image { Source = "", WidthRequest = 100, HeightRequest = 100 };
+            dragimage2 = new Image { Source = "", WidthRequest = 100, HeightRequest = 100 };
+            dragimage3 = new Image { Source = "", WidthRequest = 100, HeightRequest = 100 };
 
 
 
@@ -99,6 +90,8 @@ namespace Õppemäng
             buttonlayout = new HorizontalStackLayout { };
 
             languagelayout = new HorizontalStackLayout { };
+
+            imagelayout = new HorizontalStackLayout { };
 
             mainlayout = new VerticalStackLayout { };
 
@@ -132,6 +125,7 @@ namespace Õppemäng
 
             mainlayout.Add(languagelayout);
             mainlayout.Add(itemlayout);
+            mainlayout.Add(imagelayout);
             mainlayout.Add(buttonlayout);
 
             this.Content = mainlayout;
