@@ -72,5 +72,30 @@ namespace EducationalGame.ViewModels
             await LoadGameItemsAsync();
 
         }
+
+        public void OnStatisticsBtnClicked()
+        {
+
+        }
+
+        public void OnThemeBtnClicked()
+        {
+
+        }
+
+        public void OnEnglishBtnClicked()
+        {
+
+        }
+
+        public void OnRussianBtnClicked()
+        {
+
+        }
+
+        public void OnEstonianBtnClicked()
+        {
+
+        }
     }
 }
