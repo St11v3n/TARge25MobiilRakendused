@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EducationalGame.MainPage">
 
-    <VerticalStackLayout x:Name="mainlayout">
+    <VerticalStackLayout x:Name="mainlayout" HorizontalOptions="Center">
         
 
-        <HorizontalStackLayout x:Name="languagelayout">
+        <HorizontalStackLayout x:Name="languagelayout" Spacing="20">
             
             <Button x:Name="EnglishBtn" Text="English"/>
 
@@ -18,7 +18,7 @@
         
         
 
-        <HorizontalStackLayout x:Name="gamelayout">
+        <HorizontalStackLayout x:Name="gamelayout" Spacing="20" Margin="20">
 
             <CollectionView ItemsSource ="{Binding GameItem}">
 
@@ -50,7 +50,7 @@
         
         
 
-        <HorizontalStackLayout x:Name="imagelayout">
+        <HorizontalStackLayout x:Name="imagelayout" Margin="20" Spacing="20">
             
             <Image x:Name="dragimage1" Source="cat.jpg" WidthRequest="80" HeightRequest="80">
 
@@ -80,7 +80,7 @@
             </Image>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout x:Name="buttonlayout">
+        <HorizontalStackLayout x:Name="buttonlayout" Spacing="20" Maring="20">
             <Button x:Name="StatisticsBtn" Text="Statistics"/>
             <Button x:Name="StartBtn" Text="Start"/>
             <Button x:Name="ThemeBtn" Text="Theme"/>
