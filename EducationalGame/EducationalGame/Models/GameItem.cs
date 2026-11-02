@@ -14,5 +14,7 @@ namespace EducationalGame.Models
         public string AnimalName { get; set; }
 
         public string ImagePath { get; set; }
+
+        public string AnswerKey { get; set; }
     }
 }
