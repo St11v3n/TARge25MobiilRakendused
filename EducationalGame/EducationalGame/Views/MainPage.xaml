@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:EducationalGame.ViewModels"
              x:Class="EducationalGame.MainPage">
 
     <VerticalStackLayout x:Name="mainlayout" HorizontalOptions="Center">
         
 
         <HorizontalStackLayout x:Name="languagelayout" Spacing="20">
-            
-            <Button x:Name="EnglishBtn" Text="English"/>
 
-            <Button x:Name="RussianBtn" Text="Russian"/>
+            <Button x:Name="EnglishBtn" Text="{Binding EnglishText}" Command="{Binding EnglishBtnCommand}"/>
 
-            <Button x:Name="EstonianBtn" Text="Estonian"/>
+            <Button x:Name="RussianBtn" Text="{Binding RussianText}" Command="{Binding RussianBtnCommand}"/>
+
+            <Button x:Name="EstonianBtn" Text="{Binding EstonianText}" Command="{Binding EstonianBtnCommand}"/>
 
         </HorizontalStackLayout>
         
@@ -29,14 +30,16 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
 
-                        <VerticalStackLayout x:Name="itemlayout" WidthRequest="120" HorizontalOptions="Center">
+                        <VerticalStackLayout WidthRequest="120" HorizontalOptions="Center">
 
-                            <Image x:Name="image" Source="{Binding ImagePath}" 
-                           HeightRequest="100" 
-                           WidthRequest="100" />
+                            
+                            <VerticalStackLayout.GestureRecognizers>
+                                <DropGestureRecognizer DropCommand="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=DropCommand}"
+                               DropCommandParameter="{Binding .}" />
+                            </VerticalStackLayout.GestureRecognizers>
 
-                            <Label x:Name="label" Text="{Binding DisplayName}" 
-                           HorizontalTextAlignment="Center" />
+                            <Image Source="{Binding ImagePath}" HeightRequest="100" WidthRequest="100" />
+                            <Label Text="{Binding AnimalName}" HorizontalTextAlignment="Center" />
 
                         </VerticalStackLayout>
 
@@ -50,7 +53,7 @@
         
         
 
-        <HorizontalStackLayout x:Name="imagelayout" Margin="20" Spacing="20">
+        <HorizontalStackLayout x:Name="imagelayout" Margin="40" Spacing="20">
             
             <Image x:Name="dragimage1" Source="cat.jpg" WidthRequest="80" HeightRequest="80">
 
@@ -80,10 +83,10 @@
             </Image>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout x:Name="buttonlayout" Spacing="20" Maring="20">
-            <Button x:Name="StatisticsBtn" Text="Statistics"/>
-            <Button x:Name="StartBtn" Text="Start"/>
-            <Button x:Name="ThemeBtn" Text="Theme"/>
+        <HorizontalStackLayout x:Name="buttonlayout" Spacing="20" Margin="40">
+            <Button x:Name="StatisticsBtn" Text="{Binding StatisticsText}" Command="{Binding StatisticsBtnCommand}"/>
+            <Button x:Name="StartBtn" Text="{Binding StartText}" Command="{Binding StartBtnCommand}"/>
+            <Button x:Name="ThemeBtn" Text="{Binding ThemeText}" Command="{Binding ThemeBtnCommand}"/>
         </HorizontalStackLayout>
         
         
