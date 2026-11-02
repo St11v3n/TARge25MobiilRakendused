@@ -1,15 +1,17 @@
-Mälu mäng (Memo Game)
+Õppemäng 
 
 Lühi kirjeldus:
 
-Mälu mäng, milles on kokku 16 kaarti, ning alguses nad on kõik märgitud küsimärgiga. Nende klõpsamisel,
-küsimärk muutub täheks. Igal tähel on teine paariline, mida on vaja leida. Kui kaks kaarti on valitud, millel
-on erinevad väärtused, siis paar sekundi pärast muutuvad need kaardid tagasi küsimärgiks, aga nende
-peidetud väärtus on ikkagi alles. Valides kaks kaarti, millel on sama väärtus, hoiab need kaardid seisma,
-et määrata paar on leitud. Mängu jooksul kogutakse käikude kui ka punktide arvu. Kõige kõrge saadud tulemust
-on salvestatud JSON-i kaudu ning pärast rakenduse uuesti lahti tegemisel, on nähtav seda sama kõige kõrgemat
-tulemust. Rakendusel on olemas nupp, mis alustab mängu uuesti ning selle vajutamisel, kaartide väärtused on kõik
-muudatud, niiviisi iga mäng ei ole sama. On olemas ka statistika nupp, mis võimaldab näha käikude arvu kui ka kogutud punkte, samuti ka kõige
-kõrgem tulemus. On olemas ka teema nupp, mis muuda taga tausta kui ka nuppude tausta värvi.
+Õppemängus on olemas kolm looma sõnu  ning peab neile lisama õiget pildi, mis sobib neile. 
 
 Tehnoloogia loetelu:
+
+SQLite - Kasutab "sqlite-net-pcl" paketti.
+
+Lokaliseerimine - Saab muuta teksti inglise, vene ja eesti keelde.
+
+Teema vahetus - Saab muuta tagatausta värvi mustaks või valgeks.
+
+Statistika - On olemas statistika nupp, mille klõpsamisel jälgib kui palju õiget paari on tehtud.
+
+Mängu loogika - Mängu mängitakse lohistades (Drag And Drop) pildid õigesse kohta.
