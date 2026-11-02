@@ -49,5 +49,28 @@ namespace EducationalGame.ViewModels
                 GameItem.Add(item);
             }
         }
+        public async void OnStartBtnClicked()
+        {
+
+            var currentItems = await _databaseService.GetItemsAsync();
+
+            
+            if (currentItems.Count == 0)
+            {
+                
+                var item1 = new GameItem { AnimalName = "Kass", ImagePath = "cat.jpg" };
+                var item2 = new GameItem { AnimalName = "Koer", ImagePath = "dog.jpg" };
+                var item3 = new GameItem { AnimalName = "Hamster", ImagePath = "hamster.png" };
+
+                
+                await _databaseService.SaveItemAsync(item1);
+                await _databaseService.SaveItemAsync(item2);
+                await _databaseService.SaveItemAsync(item3);
+            }
+
+            
+            await LoadGameItemsAsync();
+
+        }
     }
 }
