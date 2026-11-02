@@ -216,13 +216,13 @@ namespace EducationalGame.ViewModels
 
                 if (Application.Current?.MainPage != null)
                 {
-                    // 1. Fetch strings via runtime culture manager bypass
+                   
                     var culture = System.Globalization.CultureInfo.CurrentUICulture;
                     string title = AppResource.ResourceManager.GetString("CorrectTitle", culture);
                     string msgTemplate = AppResource.ResourceManager.GetString("CorrectMessage", culture);
                     string close = AppResource.ResourceManager.GetString("AlertClose", culture);
 
-                    // 2. Safely swap the {0} code placeholder for the actual targetedSlot.AnimalName string
+                   
                     string finalMessage = string.Format(msgTemplate, targetedSlot.AnimalName);
 
                     await Application.Current.MainPage.DisplayAlertAsync(title, finalMessage, close);
